@@ -1,0 +1,97 @@
+div.container{
+    width: 500px;
+    height: 140px;
+    background-color: rgb(244, 251, 230);
+    position: relative;
+}
+.box{
+    position: relative;
+}
+.box1:before{
+    content:'';
+    background-color: aquamarine;
+    position:absolute;
+    z-index:2;
+    top:60px;
+    left:5px;
+    width:50px;
+    height:50px;
+    border-radius:2px;
+    animation:jumpBox 2s infinite,moveBox 10s infinite;
+  }
+  .box1:after{
+    content:'';
+    position:absolute;
+    z-index:1;
+    top:128px;
+    left:7px;
+    width:48px;
+    height:4px;
+    background:#cec6c6;
+    border-radius:100%;
+    animation:shadow 2s infinite,moveShadow 10s infinite;
+  }
+.box2{
+    background-color: rgb(255, 240, 127);
+    
+}
+.box3{
+    background-color: rgb(127, 200, 255);
+}
+@keyframes jumpBox{ 
+        0%{
+          top:50px;
+          transform: rotate(90deg);
+        }
+        5%{
+          border-radius:2px;  /*從 5% 開始變形*/
+        }
+        50%{
+          top:80px; 
+          width:50px;
+          height:50px;
+          border-radius:100%;
+          /* border-bottom-right-radius:10px; 
+          border-bottom-left-radius:10px;
+          border-top-right-radius:5px;
+          border-top-left-radius:5px;*/
+          transform: rotate(45deg);
+        }
+        95%{
+          border-radius:2px;  /*到 95% 恢復原狀*/
+        }
+        100%{
+          top:50px;
+          transform: rotate(0deg);
+        }
+    }
+@keyframes shadow{
+    0%,100%{
+        left:10px;
+        width:44px;
+        background:#cec6c6;
+      }
+      50%{
+        top:127px;
+        left:14px;
+        width:30px;
+        height:7px;
+        background:#8a8989;
+      }
+}
+@keyframes moveBox {
+    0%{
+        left: 5px;
+    }
+    100%{
+        left: 445px;
+    }
+}
+@keyframes moveShadow {
+    0%{
+        left: 15px;
+    }
+    100%{
+        left: 450px;
+    }
+}
